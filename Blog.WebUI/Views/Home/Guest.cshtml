@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Blog.Domain.Entities.Guest>
+	@*Input new guest and display all guests*@
+<section class="main">
+	<div class="input-group-addon">Добавить отзыв</div>
+	<section class="input_guest">
+		@using (Html.BeginForm("AddGuest", "Home"))
+		{
+			<p>Ваше имя:</p>
+			@Html.TextBox("Name")
+			<p>Ваш отзыв:</p>
+			@Html.TextArea("Text", "", 5, 50, null)
+			<br>
+			<input type="submit" value="Отправить" />
+		}
+	</section>
+	@foreach (var item in Model)
+	{
+		<div class="guest">
+			<h3 class="h3">@Html.DisplayFor(modelItem => item.Name)</h3>
+			<p class="guest_date">@Html.DisplayFor(modelItem => item.Date)</p>
+			<p>Отзыв:</p>
+			<p class="guest_text"> @Html.DisplayFor(modelItem => item.GuestText)</p>
+		</div>
+	}
+	</section>

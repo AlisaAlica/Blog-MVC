@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title – приложение ASP.NET</title>
+	@Styles.Render("~/Content/css")
+	@Styles.Render("~/Content/Style.css")
+	@Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+	<p><a name="top"></a></p>
+	<header class="header">
+		<img src="~/Content/logo_moto.png" alt="Logo" class="logo">
+		<h1>MotoMax</h1>
+	</header>
+	<main class="my_main">
+		@RenderBody()
+		<section class="sidebar">
+			<nav>
+				<ul class="menu">
+					Меню
+					<li>@Html.ActionLink("Главная", "Index")</li>
+					<li>@Html.ActionLink("Гостевая", "Guest")</li>
+					<li>@Html.ActionLink("Анкета", "Profile")</li>
+				</ul>
+			</nav>
+		</section>
+	</main>
+	<footer class="foother">
+		<p class="copy">2019 Copy Alisa Fedko</p>
+		<p><a href="#top" class="top">Back to top</a></p>
+	</footer>
+</body>
+</html>

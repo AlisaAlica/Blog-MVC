@@ -1,0 +1,40 @@
+﻿@{
+	ViewBag.Title = "Info";
+}
+
+@helper CreateList(string[] all)
+{
+	<ul>
+		@foreach (string s in all)
+		{
+			<li>
+				<span>@s</span>
+				@Html.CheckBox(@s)
+			</li>
+		}
+	</ul>
+}
+@{
+	string[] motos = new string[] { "Кросс", "Трек", "Стрит", "Чоппер", "Эндуро", "Турист" };
+}
+@* Input data for profile *@
+<section class="main">
+	<div class="profile">
+		<h2>Анкета</h2>
+		@using (Html.BeginForm("Info", "Home"))
+		{
+			<p>Ваше имя: </p>
+					@Html.TextBox("Name")
+					<p><br />Ваша фамилия:</p>
+					@Html.TextBox("LastName")
+					<p>Ваш пол:</p>
+					@Html.RadioButton("sex", "women", true)
+					<span>Женский</span> <br />
+					@Html.RadioButton("sex", "men")
+					<span>Мужской</span> <br />
+					<p><br />Выберете классы техники, которые Вас интересуют:</p>
+					@CreateList(motos)
+					<p><input type="submit" value="Отправить" /></p>
+		}
+	</div>
+</section>

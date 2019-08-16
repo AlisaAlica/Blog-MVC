@@ -1,0 +1,13 @@
+﻿@model IEnumerable <Blog.Domain.Entities.News>
+<section class="main">
+	@*Display all news*@
+	@foreach (var item in Model)
+	{
+		<div class="news">
+			<p class="title">@Html.DisplayFor(modelItem => item.Title)</p>
+			<p class="date">@Html.DisplayFor(modelItem => item.Date)</p>
+			<p class="text"> @Html.DisplayFor(modelItem => item.NewsText)</p>
+		</div>
+	}
+
+</section>

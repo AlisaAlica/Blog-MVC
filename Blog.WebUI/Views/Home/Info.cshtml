@@ -1,0 +1,51 @@
+﻿@{
+	ViewBag.Title = "Info";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@* Display all profiles *@
+@model IEnumerable<Blog.Domain.Entities.Profile>
+<section class="main">
+	<p class="input-group-addon">Успешная регистриация!</p>
+	<div class="profile">
+		@foreach (var item in Model)
+		{
+			<p>Ваши данные:</p>
+			<p>Имя -@Html.DisplayFor(modelItem => item.FirstName)</p>
+			<p>Фамилия - @Html.DisplayFor(modelItem => item.SecondName)</p>
+			if (@item.Sex == "women")
+			{
+				<p> Ваш пол: женский</p>
+			}
+			else {
+				<p> Ваш пол мужской</p>
+			}
+			<p>Виды техники:</p>
+			<ul>
+				@if (@item.Kross != "false")
+				{
+					<li><p>Вы предпочитаете кроссовую технику</p></li>
+				}
+				@if (@item.Street != "false")
+				{
+					<li><p>Вы предпочитаете дорожную технику</p></li>
+				}
+				@if (@item.Treck != "false")
+				{
+					<li><p>Вы предпочитаете спортивную технику</p></li>
+				}
+				@if (@item.Chopper != "false")
+				{
+					<li><p>Вы предпочитаете чопперы</p></li>
+				}
+				@if (@item.Enduro != "false")
+				{
+					<li><p>Вы предпочитаете эндуро</p></li>
+				}
+				@if (@item.Turing != "false")
+				{
+					<li><p>Вы предпочитаете туристическую технику</p></li>
+				}
+			</ul>
+		}
+	</div>
+</section>
